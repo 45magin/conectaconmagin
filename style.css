@@ -79,9 +79,115 @@ body {
 /* tarjeta pequeña */
 .tarjeta-contacto {
   background-color: #f03c2e;
-  color: #000;
+  color: #ffffff;
   padding-top: 1rem;
   text-align: center;
   font-size: 0.9rem;
-  box-shadow: 0px 4px 10px rgba (0,0,0,0,3);
+  box-shadow: 0px 4px 10px rgba(0,0,0,0,3);
+}
+/* Responsive para pantallas pequeñas (móviles) */
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+    height: auto;
+
+    width: 90%  and (max-width: 350);
+    padding: 2rem 1rem;
+  }
+
+  .contenedor {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .tarjeta {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .contenedor-img-hover {
+    height: auto;
+    aspect-ratio: 3/4; /* o usa height: auto y controla la proporción con CSS */
+  }
+
+  .contenedor-img-hover img {
+    position: relative;
+  }
+
+  .img-hover,
+  .img-normal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }}
+
+/* ---------- TARJETAS FLIP ---------- */
+.tarjeta-flip {
+  background-color: transparent;
+  width: 300px;
+  height: 500px;
+  perspective: 1000px;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.tarjeta-flip:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+/* Parte delantera */
+.flip-front {
+  background-color: #f03c2e;
+  color: #fff;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Parte trasera */
+.flip-back {
+  background-color: #000;
+  transform: rotateY(180deg);
+}
+
+.flip-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Imagen de la tarjeta derecha */
+.flip-front img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+}
+
+/* Contacto */
+.tarjeta-contacto {
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  background-color: #f03c2e;
+  color: #000;
 }
